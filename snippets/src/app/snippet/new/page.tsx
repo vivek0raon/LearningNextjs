@@ -9,7 +9,7 @@ import React from "react";
 const newSnippet = () => {
   async function createSnippet(formData: FormData) {
     "use server"; // user server directive
-    const title = formData.get("title") as string;
+    const title = formData.get("title") as string; 
     const code = formData.get("code") as string;
     const snippet = await prisma.snippet.create({
       data: {
