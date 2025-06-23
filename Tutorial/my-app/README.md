@@ -6,3 +6,6 @@
 - App Router
 - Linking Component
 - Adding image
+
+## Snippets 
+- Installing shadcn
