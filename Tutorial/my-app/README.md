@@ -7,5 +7,3 @@
 - Linking Component
 - Adding image
 
-## Snippets 
-- Installing shadcn
