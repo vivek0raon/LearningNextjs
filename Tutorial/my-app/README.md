@@ -5,3 +5,4 @@
 - routing -> client side (endpoint)
 - App Router
 - Linking Component
+- Adding image
