@@ -1,13 +1,15 @@
 import React from "react";
-
+import Link from "next/link";
 const Navbar = () => {
   return (
     <div>
       <nav className="flex container  justify-between  mx-auto p-3 bg-slate-600 text-white  items-center">
-        <h1 className="font-bold text-2xl">Home</h1>
+        <Link href="/" className="font-bold text-2xl">
+          Home
+        </Link>
         <div className="flex space-x-3.5">
-          <h1>Performance</h1>
-          <h1>Reliablity</h1>
+          <Link href="/performance">Performance</Link>
+          <Link href="/reliability">Reliablity</Link>
         </div>
       </nav>
     </div>
