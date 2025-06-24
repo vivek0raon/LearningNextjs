@@ -1,6 +1,7 @@
 "use server";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export const saveSnippet = async (id: number, code: string) => {
   await prisma.snippet.update({
@@ -20,7 +21,9 @@ export const deleteSnippet = async (id: number) => {
       id,
     },
   });
+  revalidatePath('/')
   redirect("/");
+
 };
 
 export async function createSnippet(
@@ -42,6 +45,7 @@ export async function createSnippet(
         code,
       },
     });
+    revalidatePath('/')
   } catch (error: unknown) {
     if (error instanceof Error) {
       return { message: error.message };

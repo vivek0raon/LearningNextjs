@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 
-export const dynamic = "force-dynamic" // disabling the caching
+// export const dynamic = "force-dynamic" // disabling the caching
 // export const revalidate = 0;
 
 const Home = async () => {
