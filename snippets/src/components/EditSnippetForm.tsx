@@ -6,6 +6,9 @@ import { Button } from "./ui/button";
 
 const EditSnippetForm = ({ snippet }: { snippet: Snippet }) => {
   const [code, setCode] = useState(snippet.code);
+
+  // you can't use server action as an inline inside client component
+
   return (
     <div className="flex flex-col gap-4">
       <form action="" className="flex justify-between gap-3 items-center">
