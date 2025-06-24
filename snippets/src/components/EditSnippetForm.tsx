@@ -3,7 +3,7 @@ import { Editor } from "@monaco-editor/react";
 import React, { useState } from "react";
 import type { Snippet } from "@/generated/prisma";
 import { Button } from "./ui/button";
-import saveSnippet from "@/actions";
+import {saveSnippet} from "@/actions";
 
 const EditSnippetForm = ({ snippet }: { snippet: Snippet }) => {
   const [code, setCode] = useState(snippet.code);
