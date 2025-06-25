@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -13,8 +14,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "../ui/textarea";
 import { createTopics } from "@/actions/create-topic";
+import { useActionState } from "react";
 
 const TopicCreateForm = () => {
+  const [formState, action] = useActionState(createTopics, { errors: {} });
   return (
     <Dialog>
       <form>
@@ -22,7 +25,7 @@ const TopicCreateForm = () => {
           <Button>New topic</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
-          <form action={createTopics} className="grid gap-4">
+          <form action={action} className="grid gap-4">
             <DialogHeader>
               <DialogTitle>Create a Topic</DialogTitle>
               <DialogDescription>
@@ -35,10 +38,22 @@ const TopicCreateForm = () => {
                 <Label htmlFor="name">Name</Label>
                 <Input id="name" name="name" />
               </div>
+              {formState.errors.name && (
+                <p className="text-sm text-red-600">{formState.errors.name}</p>
+              )}
               <div className="grid gap-3">
                 <Label htmlFor="description">Description</Label>
                 <Textarea id="description" name="description" />
               </div>
+              {formState.errors.description && (
+                <p className="text-sm text-red-600">{formState.errors.description}</p>
+              )}
+
+              {formState.errors.formError && (
+                <div className="border border-red-500 bg-red-200">
+                  {formState.errors.formError}
+                </div>
+              )}
             </div>
             <DialogFooter>
               <DialogClose asChild>
