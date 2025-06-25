@@ -3,7 +3,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import GitHubProvider from "next-auth/providers/github";
 import { prisma } from "@/lib/index";
 
-if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET) {
+if (!process.env.GITHUB_CLIENT_ID || !process.env.GITHUB_CLIENT_SECRET) {
   throw new Error("Missing github client or client secret");
 }
 
