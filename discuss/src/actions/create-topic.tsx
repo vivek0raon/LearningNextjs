@@ -40,7 +40,7 @@ export const createTopics = async (
   }
 
   const session = await auth();
-  if (!session || session.user) {
+  if (!session || !session.user) {
     return {
       errors: {
         formError: ["You have to login first"],
@@ -55,9 +55,6 @@ export const createTopics = async (
         description: result.data.description,
       },
     });
-    return {
-      errors: {},
-    };
   } catch (error) {
     if (error instanceof Error) {
       return {

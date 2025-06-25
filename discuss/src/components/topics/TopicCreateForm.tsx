@@ -46,11 +46,13 @@ const TopicCreateForm = () => {
                 <Textarea id="description" name="description" />
               </div>
               {formState.errors.description && (
-                <p className="text-sm text-red-600">{formState.errors.description}</p>
+                <p className="text-sm text-red-600">
+                  {formState.errors.description}
+                </p>
               )}
 
               {formState.errors.formError && (
-                <div className="border border-red-500 bg-red-200">
+                <div className="border border-red-600 bg-red-200 p-2 rounded">
                   {formState.errors.formError}
                 </div>
               )}

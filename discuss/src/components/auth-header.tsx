@@ -14,7 +14,7 @@ const AuthHeader = () => {
   const session = useSession();
   let authContent: React.ReactNode;
 
-  if (!session.data?.user) {
+  if (session.status === "loading") {
     return null;
   }
 
