@@ -1,6 +1,7 @@
 import React from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { signIn } from "@/app/actions/sign-in";
 
 const Header = () => {
   return (
@@ -12,8 +13,12 @@ const Header = () => {
         <Input type="text" placeholder="Search post..." />
       </div>
       <div className="flex justify-end gap-2">
-        <Button variant={"outline"}>Sign In</Button>
-        <Button>Sign Out</Button>
+        <form action={signIn}>
+          <Button variant={"outline"}>Sign In</Button>
+        </form>
+        <form action={signIn}>
+          <Button>Sign up</Button>
+        </form>
       </div>
     </div>
   );
