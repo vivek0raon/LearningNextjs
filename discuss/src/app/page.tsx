@@ -4,7 +4,10 @@ export default function Home() {
   return (
     <div>
       <h1>HomePage</h1>
-      <Button>Lets Build discuss app</Button>
+      <form action="">
+        <Button>Signin</Button>
+        <Button>SignOut</Button>
+      </form>
     </div>
   );
 }
