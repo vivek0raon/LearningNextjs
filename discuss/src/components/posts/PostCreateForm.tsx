@@ -14,10 +14,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "../ui/textarea";
 import { createPost } from "@/actions/create-post";
+import React, { useActionState } from "react";
 // import { useActionState } from "react";
+type CreatePostFormProp = {
+  slug: string;
+};
 
-const PostCreateForm = () => {
-//   const [formState, action] = useActionState(createTopics, { errors: {} });
+const PostCreateForm: React.FC<CreatePostFormProp> = ({ slug }) => {
+  const [formState, action] = useActionState(createPost.bind(null, slug), {
+    errors: {},
+  });
   return (
     <Dialog>
       <form>
@@ -25,12 +31,11 @@ const PostCreateForm = () => {
           <Button>New Post</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
-          <form className="grid gap-4" action={createPost}>
+          <form className="grid gap-4" action={action}>
             <DialogHeader>
               <DialogTitle>Create a Post</DialogTitle>
               <DialogDescription>
-                Write a new Post. Click save when
-                you&apos;re done.
+                Write a new Post. Click save when you&apos;re done.
               </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4">
@@ -38,24 +43,24 @@ const PostCreateForm = () => {
                 <Label htmlFor="title">Title</Label>
                 <Input id="title" name="title" />
               </div>
-              {/* {formState.errors.name && (
-                <p className="text-sm text-red-600">{formState.errors.name}</p>
-              )} */}
+              {formState.errors.title && (
+                <p className="text-sm text-red-600">{formState.errors.title}</p>
+              )}
               <div className="grid gap-3">
                 <Label htmlFor="content">Content</Label>
                 <Textarea id="content" name="content" />
               </div>
-              {/* {formState.errors.description && (
+              {formState.errors.content && (
                 <p className="text-sm text-red-600">
-                  {formState.errors.description}
+                  {formState.errors.content}
                 </p>
-              )} */}
+              )}
 
-              {/* {formState.errors.formError && (
+              {formState.errors.formError && (
                 <div className="border border-red-600 bg-red-200 p-2 rounded">
                   {formState.errors.formError}
                 </div>
-              )} */}
+              )}
             </div>
             <DialogFooter>
               <DialogClose asChild>

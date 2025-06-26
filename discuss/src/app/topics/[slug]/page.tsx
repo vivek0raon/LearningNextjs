@@ -13,7 +13,7 @@ const TopicShowPage = async ({
         <h1>{slug}</h1>
       </div>
       <div>
-        <PostCreateForm />
+        <PostCreateForm slug={slug} />
       </div>
     </div>
   );
