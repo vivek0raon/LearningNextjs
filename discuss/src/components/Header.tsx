@@ -1,6 +1,6 @@
-import React from "react";
-import { Input } from "./ui/input";
+import React, { Suspense } from "react";
 import AuthHeader from "./auth-header";
+import SearchInput from "./SearchInput";
 
 const Header = () => {
   // const session = await auth();
@@ -10,7 +10,9 @@ const Header = () => {
         <h1 className="text-2xl font-bold">Discuss</h1>
       </div>
       <div className="flex justify-between">
-        <Input type="text" placeholder="Search post..." />
+        <Suspense>
+          <SearchInput />
+        </Suspense>
       </div>
       <div className="flex justify-end gap-2">
         <AuthHeader />
